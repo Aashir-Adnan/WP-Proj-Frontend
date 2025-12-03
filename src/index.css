@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  font-family: "Press Start 2P", monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+  transition: color 0.2s;
+}
+a:hover { color: #535bf2; }
+
+h1 { font-size: 3.2em; line-height: 1.1; }
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover { border-color: #646cff; }
+button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color; }
+
+@media (prefers-color-scheme: light) {
+  :root { color: #213547; background-color: #ffffff; }
+  a:hover { color: #747bff; }
+  button { background-color: #f9f9f9; }
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  background: rgba(10, 26, 47, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 2px solid white;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.header-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+  padding: 20px 36px;
+  white-space: nowrap;
+}
+
+.header-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-btn {
+  font-size: 1.2em;
+  padding: 12px 36px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+  position: relative;
+  overflow: visible;
+}
+.nav-btn:hover { transform: scale(1.1) rotate(2deg); }
+.nav-btn.current { text-decoration: underline; }
+
+/* Page container */
+.page-container {
+  width: 95vw;
+  height: calc(100vh - 200px);
+  margin-top: 100px; 
+  padding: 20px;
+  background: rgba(10, 26, 47, 0.85);
+  border: 2px solid white;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Glitter */
+.glitter {
+  position: absolute;
+  pointer-events: none;
+  animation: glitter-arc 1s forwards;
+}
+.glitter.dot { border-radius: 50%; }
+.glitter.square { border-radius: 0; }
+.glitter.star { clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+
+@keyframes glitter-arc {
+  0%   { opacity:1; transform: translate(0,0) rotate(0deg); }
+  100% { opacity:0; transform: translate(var(--x), var(--y)) rotate(var(--rotation)); }
+}
+
+/* Floating animation */
+@keyframes floatUpDown {
+  0%, 100% { transform: translate(1px, 1px); }
+  50% { transform: translate(3px, 3px); }
+}
+
+.animate-float { animation: floatUpDown 3s ease-in-out infinite; }
+
+/* Dropdown */
+.nav-dropdown { position: relative; }
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(10,26,47,0.85);
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 140px;
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  z-index: 2000;
+}
+.dropdown-item {
+  padding: 8px 16px;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.dropdown-item:hover { background: rgba(255,255,255,0.1); }
+
+.dropdown-toggle {
+  transition: transform 0.3s ease;
+}
+.arrow { display: inline-block; transition: transform 0.3s ease; }
+.arrow.open { transform: rotate(-90deg); }
+
