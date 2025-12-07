@@ -3,9 +3,8 @@ import "./Title.css";
 export default function HeaderTitle() {
     const mainText = "SchröSite";
     const altText = "Did it ever really exist?";
-    const typingSpeed = 100; // ms per character
-    const pauseTime = 1500;  // pause before backspacing
-
+    const typingSpeed = 100;
+    const pauseTime = 1500;
     const [displayText, setDisplayText] = useState(mainText);
     const [typing, setTyping] = useState(false);
     const [isAlt, setIsAlt] = useState(false);

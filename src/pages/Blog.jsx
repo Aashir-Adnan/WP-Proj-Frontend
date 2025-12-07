@@ -13,12 +13,11 @@ export default function Blog() {
   const [username, setUsername] = useState("");
   const [expanded, setExpanded] = useState(null);
   const [ratings, setRatings] = useState({});
-  const [userRatings, setUserRatings] = useState({}); // { siteId: true/false }
+  const [userRatings, setUserRatings] = useState({}); 
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Fetch sites
   const fetchSites = async () => {
     try {
       const filterColumns = [];
@@ -205,7 +204,7 @@ export default function Blog() {
                             opacity: selectedRating >= val ? 1 : 0.4
                           }}
                           onClick={(e) => {
-                            e.stopPropagation();   // <--- Prevent card toggle
+                            e.stopPropagation();   
                             handleSelectRating(s.savedSite_id, val);
                           }}
                         >
@@ -215,7 +214,7 @@ export default function Blog() {
                       <button
                         style={{ marginLeft: "10px" }}
                         onClick={(e) => {
-                          e.stopPropagation();   // <--- Prevent card toggle
+                          e.stopPropagation();
                           handleSubmitRating(s);
                         }}
                       >

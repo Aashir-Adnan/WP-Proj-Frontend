@@ -75,7 +75,6 @@ export default function Home() {
         "then press Ctrl+V / Cmd+V to paste it."
       );
 
-      // Listen for the paste event once
       const clipboardEvent = await new Promise((resolve, reject) => {
         const handler = (e) => {
           e.preventDefault();
@@ -97,9 +96,9 @@ export default function Home() {
 
       if (!clipboardEvent) return null;
 
-      const file = clipboardEvent; // This is a File object
+      const file = clipboardEvent; 
 
-      // Upload logic
+   
       const step1Res = await axios.get(
         `${import.meta.env.VITE_API_URL}/api/get/file/url/local`,
         { params: { step: 1 } }
@@ -153,7 +152,6 @@ export default function Home() {
     try {
       setShowSaveModal(false);
 
-      // Upload the image
       const step1Res = await axios.get(
         `${import.meta.env.VITE_API_URL}/api/get/file/url/local`,
         { params: { step: 1 } }
@@ -170,7 +168,6 @@ export default function Home() {
 
       const attachment_id = uploadRes.data?.payload?.attachment_id;
 
-      // Save site metadata
       const payload = {
         savedSite_reactContent: generatedCode,
         savedSite_ownerId: user.userid,
@@ -228,7 +225,6 @@ return (
       <p>No page selected.</p>
     )}
 
-    {/* Login modal */}
     {showLoginModal && (
       <div style={{
         position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh",
@@ -256,7 +252,6 @@ return (
       </div>
     )}
 
-    {/* Save / Upload Image Modal */}
     {showSaveModal && (
       <div style={{
         position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh",
