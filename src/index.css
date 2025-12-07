@@ -60,7 +60,6 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
   button { background-color: #f9f9f9; }
 }
 
-/* Header */
 .header {
   position: fixed;
   top: 40px;
@@ -104,16 +103,15 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
 .nav-btn:hover { transform: scale(1.1) rotate(2deg); }
 .nav-btn.current { text-decoration: underline; }
 
-/* Page container */
 .page-container {
   width: 95vw;
   height: calc(100vh - 200px);
   margin-top: 100px; 
   padding: 20px;
-  background: rgba(10, 26, 47, 0.85);
+  background: rgba(10, 26, 47, 0.6);
   border: 2px solid white;
   border-radius: 16px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(1px);
 
   display: flex;
   flex-direction: column;
@@ -124,7 +122,7 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
   overflow: hidden;
 }
 
-/* Glitter */
+
 .glitter {
   position: absolute;
   pointer-events: none;
@@ -139,10 +137,10 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
   100% { opacity:0; transform: translate(var(--x), var(--y)) rotate(var(--rotation)); }
 }
 
-/* Floating animation */
+
 @keyframes floatUpDown {
   0%, 100% { transform: translate(1px, 1px); }
-  50% { transform: translate(3px, 3px); }
+  50% { transform: translate(7px, 7px); }
 }
 
 .animate-float { animation: floatUpDown 3s ease-in-out infinite; }
@@ -177,3 +175,109 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
 .arrow { display: inline-block; transition: transform 0.3s ease; }
 .arrow.open { transform: rotate(-90deg); }
 
+
+
+/* Search Row */
+.search-row {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-row input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.search-row button {
+  padding: 10px 14px;
+  background: #233a5f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-row button:hover {
+  background: #2f4f7a;
+}
+
+/* Grid */
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+  width: 100%;
+}
+
+.site-card {
+  padding: 18px;
+  background: rgba(15, 32, 58, 0.7);
+  border: 2px solid white;
+  border-radius: 14px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  user-select: none;
+
+
+  animation: none;
+}
+
+.site-card:hover {
+  transform: scale(1.05);
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+.site-card:active {
+  transform: scale(0.95);
+}
+
+.site-card.expanded {
+  background: rgba(20, 40, 75, 0.9);
+  transform: scale(1.03);
+}
+
+.site-card .title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.site-card .rating {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.expanded-content {
+  margin-top: 15px;
+}
+
+.try-btn {
+  padding: 8px 12px;
+  background: #3a6be0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.try-btn:hover {
+  background: #527ff0;
+}
+
+.try-btn:active {
+  transform: scale(0.92);
+}

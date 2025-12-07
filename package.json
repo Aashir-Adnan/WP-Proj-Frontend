@@ -10,9 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.11.0",
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "firebase": "^12.6.0",
+    "fs": "^0.0.1-security",
+    "html2canvas": "^1.4.1",
+    "openai": "^6.10.0",
+    "path": "^0.12.7",
     "pexels": "^1.4.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.10.0"
   },
   "devDependencies": {
